@@ -32,7 +32,7 @@ We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting m
 
 <img src=misc/dependency.png>
 
-(a) The inter-variable dependency is establishde across different variables over time. (b) The intra-variable dependency focuses on the important information of the specific variable across time. Both dependencies are adaptively established w.r.t. the input.
+(a) The inter-variable dependency is established across different variables over time. (b) The intra-variable dependency focuses on the important information of the specific variable across time. Both dependencies are adaptively established w.r.t. the input.
 
 
 ## Setting Up the Environment
