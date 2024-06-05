@@ -17,7 +17,7 @@ year      = {2024}
 }
 ```
 
-## About
+## Abstract
 
 <link rel="stylesheet" href="style.css">
 <img src=misc/figure1.png>
@@ -26,13 +26,13 @@ In multivariate time series (MTS) forecasting, existing state-of-the-art deep le
 
 ## Highlights
 
-We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting model that better captures inter- and intra-variate dependencies at different temporal granularities. It comprises two Deformable Attention Blocks (DAB) which facilitate learning from adaptively transformed input across variables (V-DAB) and time (T-DAB) to establish inter- and intra- variable dependencies. Both benefits from deformed information as shown below:
+We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting model that better captures inter- and intra-variate dependencies at different temporal granularities. It comprises two Deformable Attention Blocks (DAB) which allow the model to adaptively focus on more informative naighbouring information. The below figure shows how different dependencies are established:
+<!-- The  -->
+<!-- facilitate learning from adaptively transformed input across variables (V-DAB) and time (T-DAB) to establish inter- and intra- variable dependencies. Both benefits from deformed information as shown below: -->
 
 <img src=misc/dependency.png>
 
-(a) To establish inter-variable dependency, we capture important information around every data point across different variables over time. This allows the dependency established flexibly w.r.t. to the input.
-
-(b) Similarly, we establish intra-variable dependency by capturing important information along time. The upper bound of the perceptive field is a learnable parameter adaptable by the model.
+(a) The inter-variable dependency is establishde across different variables over time. (b) The intra-variable dependency focuses on the important information of the specific variable across time. Both dependencies are adaptively established w.r.t. the input.
 
 
 ## Setting Up the Environment
@@ -42,7 +42,7 @@ We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting m
 ### 1. Create a Conda Environment
 
 <!-- Maybe have a small paragragh on what environment and device the code and requirements have been tested on -->
-First, create a Conda environment with Python 3.9. In the terminal, run the following command:
+Our code was tested with Python 3.9. To create a Conda environment, run the following command in the terminal:
 
 ```sh
 conda create --name dtime python=3.9
