@@ -26,7 +26,7 @@ In multivariate time series (MTS) forecasting, existing state-of-the-art deep le
 
 ## Highlights
 
-We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting model that better captures inter- and intra-variate dependencies at different temporal granularities. It comprises two Deformable Attention Blocks (DAB) which allow the model to adaptively focus on more informative naighbouring information. The below figure shows how different dependencies are established:
+We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting model that better captures inter- and intra-variate dependencies at different temporal granularities. It comprises two Deformable Attention Blocks (DAB) which allow the model to adaptively focus on more informative neighbouring attributes. The below figure shows how different dependencies are established:
 <!-- The  -->
 <!-- facilitate learning from adaptively transformed input across variables (V-DAB) and time (T-DAB) to establish inter- and intra- variable dependencies. Both benefits from deformed information as shown below: -->
 
