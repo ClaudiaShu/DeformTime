@@ -20,7 +20,7 @@ year      = {2024}
 ## Abstract
 
 <link rel="stylesheet" href="style.css">
-<img src=misc/figure1.png>
+<!-- <img src=misc/figure1.png> -->
 
 In multivariate time series (MTS) forecasting, existing state-of-the-art deep learning approaches tend to focus on autoregressive formulations and overlook the information within exogenous indicators. To address this limitation, we present <span class="small-caps">DeformTime</span>, a neural network architecture that attempts to capture correlated temporal patterns from the input space, and hence, improve forecasting accuracy. It deploys two core operations performed by deformable attention blocks (DABs): learning dependencies across variables from different time steps (variable DAB), and preserving temporal dependencies in data from previous time steps (temporal DAB). Input data transformation is explicitly designed to enhance learning from the deformed series of information while passing through a DAB. We conduct extensive experiments on 6 MTS data sets, using previously established benchmarks as well as challenging infectious disease modelling tasks with more exogenous variables. The results demonstrate that <span class="small-caps">DeformTime</span> improves accuracy against previous competitive methods across the vast majority of MTS forecasting tasks, reducing the mean absolute error by 10\% on average. Notably, performance gains remain consistent across longer forecasting horizons.
 
