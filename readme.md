@@ -10,10 +10,11 @@ This repository is the official implementation of "DEFORMTIME: Capturing Variabl
 If you find our work useful in your research please consider citing our paper:
 
 ```
-@inproceedings{shu2024deformtime,
-author    = {Yuxuan Shu and Vasileios Lampos},
-title     = {DEFORMTIME: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting},
-year      = {2024}
+@article{shu2024deformtime,
+    author    = {Yuxuan Shu and Vasileios Lampos},
+    title     = {{\textsc{DeformTime}: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting}},
+    year      = {2024},
+    journal   = {Preprint under review}
 }
 ```
 
