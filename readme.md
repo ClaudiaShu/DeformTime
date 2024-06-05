@@ -637,8 +637,8 @@ Our model achieves the following performance. The best results are in **bold** f
 
 ## Acknowledgement
 
-- Our code for attention deformation is inspired by: [DAT](https://github.com/LeapLabTHU/DAT)
-- We also appreciate [Informer](https://github.com/zhouhaoyi/Informer2020) and [Autoformer](https://github.com/thuml/Autoformer) for their valuable code and data for time series forecasting.
+- Our code for attention deformation is inspired by: [DAT](https://github.com/LeapLabTHU/DAT).
+- We also acknowledge [Informer](https://github.com/zhouhaoyi/Informer2020) and [Autoformer](https://github.com/thuml/Autoformer) for their valuable code and data for time series forecasting.
 
 
 
