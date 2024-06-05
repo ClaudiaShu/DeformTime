@@ -1,0 +1,8 @@
+/* Style not working with displying on Github, keeping this anyway incase needed */
+.small-caps {
+    font-variant: small-caps;
+    font-size: 75%; 
+    text-transform: none; /* Ensure uppercase letters remain unchanged */
+    font-family: "Times New Roman", Times, serif; 
+}
+
