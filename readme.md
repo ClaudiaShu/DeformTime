@@ -123,7 +123,7 @@ The results will be saved in a `result.txt` file.
 
 ## Results
 
-Our model achieves the following performance. The best results are in **bold** font and the second best are <ins>underlined</ins>.
+Our model achieves the following performance. The best results are in **bold** font and the second best are <ins>underlined</ins>. (We use $\epsilon~\%$ to denote the SMAPE score. See more details in the paper.)
 
 <!DOCTYPE html>
 <html lang="en">
