@@ -94,8 +94,6 @@ The ILI rates of the US HHS regions are obtained by the Centers for Disease Cont
 
 The ILI data for England in our experiment was obtained from the Royal College of General Practitioners (RCGP) with a fixed list of GP practices throughout England. Although we are unable to provide the original ILI data, you may access the officially reported influenza data [here](https://www.gov.uk/government/collections/weekly-national-flu-reports).
 
-<!-- this is not not clear -->
-
 #### Google Health Trends
 
 Queries used in our experiments can be found under the folder `dataset/queries/`. The full version of the base queries is provided in `base.csv` and the seed queries used to conduct semantic filtering are in `seed.csv`. We also provide the query lists after semantic filtering. The list for England is available in `UK.csv` (containing $4{,}396$ queries), and the list for US regions is available in `US.csv` (containing $2{,}479$ queries). Apply [here](https://support.google.com/trends/contact/trends_api) to get get access to Google Trends API.
@@ -120,7 +118,7 @@ For weather tasks:
 bash scripts/DeformTime/weather.sh
 ```
 
-The results will be saved in a `result.txt` file。
+The results will be saved in a `result.txt` file.
 
 
 ## Results
