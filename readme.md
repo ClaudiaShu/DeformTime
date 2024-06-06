@@ -133,7 +133,7 @@ Our model achieves the following performance with MAE score. The best results ar
 
 <table>
 <hr>
-  <colgroup>
+  <!-- <colgroup>
     <col style="width: 5%;">
     <col style="width: 5%;">
     <col style="width: 10%;">
@@ -143,7 +143,7 @@ Our model achieves the following performance with MAE score. The best results ar
     <col style="width: 10%;">
     <col style="width: 10%;">
     <col style="width: 10%;">
-  </colgroup>
+  </colgroup> -->
   <tr>
     <!-- <th rowspan="1">Models</th>
     <th rowspan="2">$H$</th>
@@ -324,7 +324,8 @@ Our model achieves the following performance with MAE score. The best results ar
   </tr>
 
   <tr>
-    <td rowspan="4">Weather</td>
+    <!-- <td rowspan="4">Weather</td> -->
+    <td rowspan="4">Wea.</td>
     <td>96</td>
     <td><b>0.0244</b></td>
     <!-- <td><b>37.89</b></td> -->
@@ -402,7 +403,8 @@ Our model achieves the following performance with MAE score. The best results ar
   </tr>
 
   <tr>
-    <td rowspan="4">ILI-ENG</td>
+    <!-- <td rowspan="4">ILI-ENG</td> -->
+    <td rowspan="4">ENG</td>
     <td>7</td>
     <td><b>1.6417</b></td>
     <!-- <td>28.61</td> -->
@@ -480,7 +482,8 @@ Our model achieves the following performance with MAE score. The best results ar
   </tr>
 
   <tr>
-    <td rowspan="4">ILI-US2</td>
+    <!-- <td rowspan="4">ILI-US2</td> -->
+    <td rowspan="4">US2</td>
     <td>7</td>
     <td><b>0.4122</b></td>
     <!-- <td><b>16.01</b></td> -->
@@ -558,7 +561,8 @@ Our model achieves the following performance with MAE score. The best results ar
   </tr>
 
   <tr>
-    <td rowspan="4">ILI-US9</td>
+    <!-- <td rowspan="4">ILI-US9</td> -->
+    <td rowspan="4">US9</td>
     <td>7</td>
     <td><b>0.2622</b></td>
     <!-- <td><b>12.26</b></td> -->
