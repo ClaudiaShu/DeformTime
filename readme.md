@@ -5,7 +5,7 @@ This repository maintains the official implementation of methods and experiments
 
 <!-- [[project]](https://claudiashu.github.io/publications/2024-arXiv-deformtime/) [[paper]](http) -->
 
-## Reference
+<!-- ## Reference -->
 
 To cite our paper please use:
 
