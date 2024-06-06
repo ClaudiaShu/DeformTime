@@ -131,7 +131,7 @@ Our model achieves the following performance. The best results are in **bold** f
 <html lang="en">
 <body>
 
-<table>
+<table styel="font-size:0.8em">
 <hr>
   <tr>
     <th rowspan="2">Models</th>
