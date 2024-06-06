@@ -1,6 +1,14 @@
+# Results and datasets
 results
 checkpoints
 dataset/ETT
 dataset/weather
-scripts/DeformTime_cache
 result.txt
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# misc
+img/figure1.png

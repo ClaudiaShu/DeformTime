@@ -22,17 +22,15 @@ This repository maintains the official implementation of methods and experiments
 ## Abstract
 
 <link rel="stylesheet" href="style.css">
-<!-- <img src=misc/figure1.png> -->
+<!-- <img src=img/figure1.png> -->
 
 In multivariate time series (MTS) forecasting, existing state-of-the-art deep learning approaches tend to focus on autoregressive formulations and overlook the information within exogenous indicators. To address this limitation, we present <span class="small-caps">DeformTime</span>, a neural network architecture that attempts to capture correlated temporal patterns from the input space, and hence, improve forecasting accuracy. It deploys two core operations performed by deformable attention blocks (DABs): learning dependencies across variables from different time steps (variable DAB), and preserving temporal dependencies in data from previous time steps (temporal DAB). Input data transformation is explicitly designed to enhance learning from the deformed series of information while passing through a DAB. We conduct extensive experiments on 6 MTS data sets, using previously established benchmarks as well as challenging infectious disease modelling tasks with more exogenous variables. The results demonstrate that <span class="small-caps">DeformTime</span> improves accuracy against previous competitive methods across the vast majority of MTS forecasting tasks, reducing the mean absolute error by 10\% on average. Notably, performance gains remain consistent across longer forecasting horizons.
 
 ## Highlights
 
 We propose <span class="small-caps">DeformTime</span>, a novel MTS forecasting model that better captures inter- and intra-variate dependencies at different temporal granularities. It comprises two Deformable Attention Blocks (DAB) which allow the model to adaptively focus on more informative neighbouring attributes. The below figure shows how different dependencies are established:
-<!-- The  -->
-<!-- facilitate learning from adaptively transformed input across variables (V-DAB) and time (T-DAB) to establish inter- and intra- variable dependencies. Both benefits from deformed information as shown below: -->
 
-<img src=misc/dependency.png>
+<img src=img/dependency.png>
 
 (a) The inter-variable dependency is established across different variables over time. (b) The intra-variable dependency focuses on the important information of the specific variable across time. Both dependencies are adaptively established w.r.t. the input.
 
@@ -98,7 +96,7 @@ The ILI data for England in our experiment was obtained from the Royal College o
 
 #### Google Health Trends
 
-Queries used in our experiments can be found under the folder `dataset/queries/`. The full version of the base queries is provided in `base.csv` and the seed queries used to conduct semantic filtering are in `seed.csv`. We also provide the query lists after semantic filtering. The list for England is available in `UK.csv` (containing $4{,}396$ queries), and the list for US regions is available in `US.csv` (containing $2{,}479$ queries). Apply [here](https://support.google.com/trends/contact/trends_api) to get get access to Google Trends API.
+Queries used in our experiments can be found under the folder `dataset/queries/`. The full version of the base queries is provided in `base.csv` and the seed queries used to conduct semantic filtering are in `seed.csv`. We also provide the query lists after semantic filtering. The list for England is available in `UK.csv` (containing $4{,}396$ queries), and the list for US regions is available in `US.csv` (containing $2{,}479$ queries). Apply [here](https://support.google.com/trends/contact/trends_api) to get access to Google Trends API.
 
 
 ## Model training
@@ -129,6 +127,16 @@ Our model achieves the following performance. The best results are in **bold** f
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <style>
+        .rotate {
+            transform: rotate(90deg);
+            transform-origin: left top;
+            white-space: nowrap; /* Prevent line break */
+        }
+    </style>
+</head>
+
 <body>
 
 <table>
@@ -143,7 +151,7 @@ Our model achieves the following performance. The best results are in **bold** f
     <th colspan="2">Crossformer</th>
     <th colspan="2">LightTS</th>
     <th colspan="2">DLinear</th>
-    <th colspan="2">Persistence</th>
+    <!-- <th colspan="2">Persistence</th> -->
   </tr>
   <tr>
     <th>MAE</th>
@@ -160,12 +168,12 @@ Our model achieves the following performance. The best results are in **bold** f
     <th>$\epsilon~\%$</th>
     <th>MAE</th>
     <th>$\epsilon~\%$</th>
-    <th>MAE</th>
-    <th>$\epsilon~\%$</th>
+    <!-- <th>MAE</th>
+    <th>$\epsilon~\%$</th> -->
   </tr>
 
   <tr>
-    <td rowspan="4">ETTh1</td>
+    <td class="rotate" rowspan="4">ETTh1</td>
     <td>96</td>
     <td><b>0.1941</b></td>
     <td><b>14.96</b></td>
@@ -181,8 +189,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>17.24</td>
     <td>0.2599</td>
     <td>20.82</td>
-    <td>0.2371</td>
-    <td>18.47</td>
+    <!-- <td>0.2371</td>
+    <td>18.47</td> -->
   </tr>
   <tr>
     <td>192</td>
@@ -200,8 +208,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>20.55</td>
     <td>0.3798</td>
     <td>31.78</td>
-    <td>0.2803</td>
-    <td>21.46</td>
+    <!-- <td>0.2803</td>
+    <td>21.46</td> -->
   </tr>
   <tr>
     <td>336</td>
@@ -219,8 +227,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>22.15</td>
     <td>0.6328</td>
     <td>58.34</td>
-    <td>0.3028</td>
-    <td>22.90</td>
+    <!-- <td>0.3028</td>
+    <td>22.90</td> -->
   </tr>
   <tr>
     <td>720</td>
@@ -238,8 +246,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>44.57</td>
     <td>0.7563</td>
     <td>69.52</td>
-    <td>0.3222</td>
-    <td>25.29</td>
+    <!-- <td>0.3222</td>
+    <td>25.29</td> -->
   </tr>
 
   <tr>
@@ -259,8 +267,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>41.80</td>
     <td>0.3349</td>
     <td>41.68</td>
-    <td>0.3522</td>
-    <td>43.85</td>
+    <!-- <td>0.3522</td>
+    <td>43.85</td> -->
   </tr>
   <tr>
     <td>192</td>
@@ -278,8 +286,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>48.01</td>
     <td>0.4084</td>
     <td>50.67</td>
-    <td>0.4416</td>
-    <td>50.24</td>
+    <!-- <td>0.4416</td>
+    <td>50.24</td> -->
   </tr>
   <tr>
     <td>336</td>
@@ -297,8 +305,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>51.35</td>
     <td>0.4710</td>
     <td>55.53</td>
-    <td>0.4836</td>
-    <td>53.70</td>
+    <!-- <td>0.4836</td>
+    <td>53.70</td> -->
   </tr>
   <tr>
     <td>720</td>
@@ -316,8 +324,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>70.50</td>
     <td>0.7981</td>
     <td>94.67</td>
-    <td>0.5199</td>
-    <td>58.75</td>
+    <!-- <td>0.5199</td>
+    <td>58.75</td> -->
   </tr>
 
   <tr>
@@ -337,8 +345,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>48.48</td>
     <td><ins>0.0251</ins></td>
     <td><ins>39.03</ins></td>
-    <td>0.0329</td>
-    <td>51.83</td>
+    <!-- <td>0.0329</td>
+    <td>51.83</td> -->
   </tr>
   <tr>
     <td>192</td>
@@ -356,8 +364,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>51.45</td>
     <td><ins>0.0270</ins></td>
     <td>42.68</td>
-    <td>0.0361</td>
-    <td>54.92</td>
+    <!-- <td>0.0361</td>
+    <td>54.92</td> -->
   </tr>
   <tr>
     <td>336</td>
@@ -375,8 +383,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>50.83</td>
     <td>0.0305</td>
     <td>47.68</td>
-    <td>0.0361</td>
-    <td>55.14</td>
+    <!-- <td>0.0361</td>
+    <td>55.14</td> -->
   </tr>
   <tr>
     <td>720</td>
@@ -394,8 +402,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>62.96</td>
     <td><b>0.0352</b></td>
     <td><ins>54.54</ins></td>
-    <td>0.0394</td>
-    <td>56.04</td>
+    <!-- <td>0.0394</td>
+    <td>56.04</td> -->
   </tr>
 
   <tr>
@@ -408,20 +416,20 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>2.3084</td>
     <td>26.38</td>
     <td>2.1748</td>
-    <td><ins>25.68</ins></td>
+    <td><b>25.68</b></td>
     <td><ins>1.8698</ins></td>
-    <td>25.71</td>
+    <td><ins>25.71</ins></td>
     <td>2.2397</td>
     <td>52.25</td>
     <td>2.8214</td>
     <td>43.02</td>
-    <td>2.1710</td>
-    <td><b>24.96</b></td>
+    <!-- <td>2.1710</td>
+    <td><b>24.96</b></td> -->
   </tr>
   <tr>
     <td>14</td>
     <td><b>2.2308</b></td>
-    <td>33.98</td>
+    <td><ins>33.98</ins></td>
     <td>3.2547</td>
     <td>37.76</td>
     <td>3.2301</td>
@@ -434,8 +442,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>38.29</td>
     <td>3.7922</td>
     <td>55.28</td>
-    <td>3.0625</td>
-    <td><ins>33.77</ins></td>
+    <!-- <td>3.0625</td>
+    <td><ins>33.77</ins></td> -->
   </tr>
   <tr>
     <td>21</td>
@@ -453,8 +461,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>51.78</td>
     <td>4.4739</td>
     <td>61.25</td>
-    <td>3.8617</td>
-    <td>42.03</td>
+    <!-- <td>3.8617</td>
+    <td>42.03</td> -->
   </tr>
   <tr>
     <td>28</td>
@@ -472,8 +480,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>55.59</td>
     <td>5.0347</td>
     <td>67.75</td>
-    <td>4.5857</td>
-    <td>49.49</td>
+    <!-- <td>4.5857</td>
+    <td>49.49</td> -->
   </tr>
 
   <tr>
@@ -493,8 +501,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>16.74</td>
     <td>0.7355</td>
     <td>27.94</td>
-    <td>0.6474</td>
-    <td>22.48</td>
+    <!-- <td>0.6474</td>
+    <td>22.48</td> -->
   </tr>
   <tr>
     <td>14</td>
@@ -512,8 +520,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>23.11</td>
     <td>0.8435</td>
     <td>32.22</td>
-    <td>0.8135</td>
-    <td>28.24</td>
+    <!-- <td>0.8135</td>
+    <td>28.24</td> -->
   </tr>
   <tr>
     <td>21</td>
@@ -531,8 +539,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>29.27</td>
     <td>0.9124</td>
     <td>34.93</td>
-    <td>0.9635</td>
-    <td>33.51</td>
+    <!-- <td>0.9635</td>
+    <td>33.51</td> -->
   </tr>
   <tr>
     <td>28</td>
@@ -550,8 +558,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>27.73</td>
     <td>0.9805</td>
     <td>37.62</td>
-    <td>1.1007</td>
-    <td>38.54</td>
+    <!-- <td>1.1007</td>
+    <td>38.54</td> -->
   </tr>
 
   <tr>
@@ -571,8 +579,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>15.65</td>
     <td>0.4675</td>
     <td>23.47</td>
-    <td>0.4057</td>
-    <td>18.49</td>
+    <!-- <td>0.4057</td>
+    <td>18.49</td> -->
   </tr>
   <tr>
     <td>14</td>
@@ -590,8 +598,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>19.04</td>
     <td>0.5467</td>
     <td>27.35</td>
-    <td>0.5008</td>
-    <td>23.07</td>
+    <!-- <td>0.5008</td>
+    <td>23.07</td> -->
   </tr>
   <tr>
     <td>21</td>
@@ -609,8 +617,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>23.74</td>
     <td>0.6001</td>
     <td>29.66</td>
-    <td>0.5906</td>
-    <td>27.41</td>
+    <!-- <td>0.5906</td>
+    <td>27.41</td> -->
   </tr>
   <tr>
     <td>28</td>
@@ -628,8 +636,8 @@ Our model achieves the following performance. The best results are in **bold** f
     <td>23.22</td>
     <td>0.6564</td>
     <td>32.16</td>
-    <td>0.6799</td>
-    <td>31.67</td>
+    <!-- <td>0.6799</td>
+    <td>31.67</td> -->
   </tr>
 
 </table>
