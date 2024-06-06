@@ -144,7 +144,7 @@ Our model achieves the following performance with MAE score. The best results ar
     <th colspan="2">LightTS</th>
     <th colspan="2">DLinear</th> -->
     <!-- <th colspan="2">Persistence</th> -->
-    <th>Models</th>
+    <th>Tasks</th>
     <th>$H$</th>
     <th class="small-caps">DeformTime</th>
     <th>PatchTST</th>
