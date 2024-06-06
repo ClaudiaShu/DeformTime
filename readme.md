@@ -143,34 +143,16 @@ Our model achieves the following performance. The best results are in **bold** f
     <th colspan="2">LightTS</th>
     <th colspan="2">DLinear</th> -->
     <!-- <th colspan="2">Persistence</th> -->
-    <th rowspan="2">Models</th>
-    <th rowspan="2">$H$</th>
-    <th colspan="1" class="small-caps">DeformTime</th>
-    <th colspan="1">PatchTST</th>
-    <th colspan="1">iTransformer</th>
-    <th colspan="1">TimeMixer</th>
-    <th colspan="1">Crossformer</th>
-    <th colspan="1">LightTS</th>
-    <th colspan="1">DLinear</th>
+    <th>Models</th>
+    <th>$H$</th>
+    <th class="small-caps">DeformTime</th>
+    <th>PatchTST</th>
+    <th>iTransformer</th>
+    <th>TimeMixer</th>
+    <th>Crossformer</th>
+    <th>LightTS</th>
+    <th>DLinear</th>
 
-  </tr>
-  <tr>
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <th>MAE</th>
-    <!-- <th>$\epsilon~\%$</th> -->
-    <!-- <th>MAE</th>
-    <th>$\epsilon~\%$</th> -->
   </tr>
 
   <tr>
