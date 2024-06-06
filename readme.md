@@ -131,7 +131,8 @@ Our model achieves the following performance. The best results are in **bold** f
 <html lang="en">
 <body>
 
-<table style="font-size:0.8em">
+<small>
+<table>
 <hr>
   <tr>
     <th rowspan="2">Models</th>
@@ -633,6 +634,8 @@ Our model achieves the following performance. The best results are in **bold** f
   </tr>
 
 </table>
+</table>
+</small>
 
 </body>
 </html>
