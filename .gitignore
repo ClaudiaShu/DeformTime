@@ -9,7 +9,9 @@ result.txt
 __pycache__/
 *.py[cod]
 *$py.class
+*.DS_Store
 
 # misc
 img/figure1.png
 table_cache.md
+
