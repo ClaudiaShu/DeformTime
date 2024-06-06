@@ -7,7 +7,7 @@ This repository maintains the official implementation of methods and experiments
 
 <!-- ## Reference -->
 
-To cite our paper please use:
+<!-- To cite our paper please use:-->
 
 ```
 @article{shu2024deformtime,
