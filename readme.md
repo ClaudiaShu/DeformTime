@@ -160,10 +160,10 @@ Our model achieves the following performance with MAE score. The best results ar
     <th class="small-caps">DeformTime</th>
     <th>PatchTST</th>
     <!-- <th colspan="2">iTransformer</th> -->
-    <th colspan="2">iTrans.</th>
-    <th colspan="2">TimeMixer</th>
+    <th>iTrans.</th>
+    <th>TimeMixer</th>
     <!-- <th colspan="2">Crossformer</th> -->
-    <th colspan="2">Cross.</th>
+    <th>Cross.</th>
     <th>LightTS</th>
     <th>DLinear</th>
 
