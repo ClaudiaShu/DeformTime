@@ -133,6 +133,17 @@ Our model achieves the following performance with MAE score. The best results ar
 
 <table>
 <hr>
+  <colgroup>
+    <col style="width: 5%;">
+    <col style="width: 5%;">
+    <col style="width: 10%;">
+    <col style="width: 10%;">
+    <col style="width: 10%;">
+    <col style="width: 10%;">
+    <col style="width: 10%;">
+    <col style="width: 10%;">
+    <col style="width: 10%;">
+  </colgroup>
   <tr>
     <!-- <th rowspan="1">Models</th>
     <th rowspan="2">$H$</th>
