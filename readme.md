@@ -1,6 +1,6 @@
 # DeformTime
 
-This repository is the official implementation of "DEFORMTIME: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting"
+This repository is the official implementation of our paper titled <span class="small-caps">DeformTime</span>: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting
 <!-- [DEFORMTIME: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting](https://arxiv.org/abs/2030.12345).  -->
 
 <!-- [[project]](https://claudiashu.github.io/publications/2024-arXiv-deformtime/) [[paper]](http) -->
@@ -131,7 +131,7 @@ Our model achieves the following performance. The best results are in **bold** f
 <html lang="en">
 <body>
 
-<table style="font-size:50%">
+<table>
 <hr>
   <tr>
     <th rowspan="2">Models</th>
