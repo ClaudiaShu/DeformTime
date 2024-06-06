@@ -4,7 +4,7 @@ model_name=DeformTime
 
 
 python -u run.py \
-  --root_path ./dataset/weather/ \
+  --root_path ./data/dataset/weather/ \
   --data_path weather.csv \
   --model_id weather_96 \
   --model $model_name \
@@ -35,7 +35,7 @@ python -u run.py \
 
 
 python -u run.py \
-  --root_path ./dataset/weather/ \
+  --root_path ./data/dataset/weather/ \
   --data_path weather.csv \
   --model_id weather_192 \
   --model $model_name \
@@ -66,7 +66,7 @@ python -u run.py \
 
 
 python -u run.py \
-  --root_path ./dataset/weather/ \
+  --root_path ./data/dataset/weather/ \
   --data_path weather.csv \
   --model_id weather_336 \
   --model $model_name \
@@ -97,7 +97,7 @@ python -u run.py \
 
 
 python -u run.py \
-  --root_path ./dataset/weather/ \
+  --root_path ./data/dataset/weather/ \
   --data_path weather.csv \
   --model_id weather_720 \
   --model $model_name \

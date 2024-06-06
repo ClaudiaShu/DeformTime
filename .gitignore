@@ -1,8 +1,8 @@
 # Results and datasets
 results
 checkpoints
-dataset/ETT
-dataset/weather
+data/dataset/ETT
+data/dataset/weather
 result.txt
 
 # Byte-compiled / optimized / DLL files

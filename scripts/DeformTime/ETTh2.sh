@@ -4,7 +4,7 @@ model_name=DeformTime
 
 
 python -u run.py \
-  --root_path ./dataset/ETT/ \
+  --root_path ./data/dataset/ETT/ \
   --data_path ETTh2.csv \
   --model_id ETTh2_96 \
   --model $model_name \
@@ -34,7 +34,7 @@ python -u run.py \
 
 
 python -u run.py \
-  --root_path ./dataset/ETT/ \
+  --root_path ./data/dataset/ETT/ \
   --data_path ETTh2.csv \
   --model_id ETTh2_192 \
   --model $model_name \
@@ -64,7 +64,7 @@ python -u run.py \
 
 
 python -u run.py \
-  --root_path ./dataset/ETT/ \
+  --root_path ./data/dataset/ETT/ \
   --data_path ETTh2.csv \
   --model_id ETTh2_336 \
   --model $model_name \
@@ -94,7 +94,7 @@ python -u run.py \
 
 
 python -u run.py \
-  --root_path ./dataset/ETT/ \
+  --root_path ./data/dataset/ETT/ \
   --data_path ETTh2.csv \
   --model_id ETTh2_720 \
   --model $model_name \

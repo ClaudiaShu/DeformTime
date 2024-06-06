@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from layers.Autoformer_EncDec import series_decomp
+from src.layers.Autoformer_EncDec import series_decomp
 
 
 class Model(nn.Module):

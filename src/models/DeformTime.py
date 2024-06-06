@@ -1,8 +1,8 @@
 import torch
 from torch import nn
 
-from layers.TemporalDeformAttention import Encoder, CrossDeformAttn
-from layers.Embed import Deform_Temporal_Embedding, Local_Temporal_Embedding
+from src.layers.TemporalDeformAttention import Encoder, CrossDeformAttn
+from src.layers.Embed import Deform_Temporal_Embedding, Local_Temporal_Embedding
 from math import ceil
 
 class Layernorm(nn.Module):

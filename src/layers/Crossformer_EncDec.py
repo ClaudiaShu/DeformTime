@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from einops import rearrange, repeat
-from layers.SelfAttention_Family import TwoStageAttentionLayer
+from src.layers.SelfAttention_Family import TwoStageAttentionLayer
 
 
 class SegMerging(nn.Module):

@@ -1,8 +1,8 @@
 import torch
 from torch import nn
-from layers.Transformer_EncDec import Encoder, EncoderLayer
-from layers.SelfAttention_Family import FullAttention, AttentionLayer
-from layers.Embed import PatchEmbedding
+from src.layers.Transformer_EncDec import Encoder, EncoderLayer
+from src.layers.SelfAttention_Family import FullAttention, AttentionLayer
+from src.layers.Embed import PatchEmbedding
 
 
 class FlattenHead(nn.Module):

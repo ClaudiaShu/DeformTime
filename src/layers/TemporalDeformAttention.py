@@ -4,8 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 from timm.models.layers import trunc_normal_
-from layers.MLP import MLP
-from utils.functions import num_patches
+from src.layers.MLP import MLP
+from src.utils.functions import num_patches
 
 
 def normal_init(module, mean=0, std=1, bias=0):

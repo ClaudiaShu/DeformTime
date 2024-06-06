@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange, repeat
-from layers.Crossformer_EncDec import scale_block, Encoder, Decoder, DecoderLayer
-from layers.Embed import PatchEmbedding
-from layers.SelfAttention_Family import AttentionLayer, FullAttention, TwoStageAttentionLayer
+from src.layers.Crossformer_EncDec import scale_block, Encoder, Decoder, DecoderLayer
+from src.layers.Embed import PatchEmbedding
+from src.layers.SelfAttention_Family import AttentionLayer, FullAttention, TwoStageAttentionLayer
 
 
 from math import ceil

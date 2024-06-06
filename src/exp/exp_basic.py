@@ -1,6 +1,6 @@
 import os
 import torch
-from models import DLinear, LightTS, PatchTST, Crossformer, iTransformer, DeformTime
+from src.models import DLinear, LightTS, PatchTST, Crossformer, iTransformer, DeformTime
 
 
 class Exp_Basic(object):

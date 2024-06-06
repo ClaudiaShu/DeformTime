@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-from layers.Transformer_EncDec import Encoder, EncoderLayer
-from layers.SelfAttention_Family import FullAttention, AttentionLayer
-from layers.Embed import DataEmbedding_inverted
+from src.layers.Transformer_EncDec import Encoder, EncoderLayer
+from src.layers.SelfAttention_Family import FullAttention, AttentionLayer
+from src.layers.Embed import DataEmbedding_inverted
 
 
 class Model(nn.Module):

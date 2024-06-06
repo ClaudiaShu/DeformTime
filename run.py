@@ -2,8 +2,8 @@ import argparse
 import os
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import torch
-from exp.exp_MTS_forecasting import exp_MTS_forecasting
-from utils.tools import seed_everything
+from src.exp.exp_MTS_forecasting import exp_MTS_forecasting
+from src.utils.tools import seed_everything
 
 # 
 torch.set_num_threads(4)
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     # data loader
     parser.add_argument('--data', type=str, default='ETTh1', help='dataset type')
-    parser.add_argument('--root_path', type=str, default='./dataset/ETT/', help='root path of the data file')
+    parser.add_argument('--root_path', type=str, default='./data/dataset/ETT/', help='root path of the data file')
     parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')
     parser.add_argument('--features', type=str, default='MS',
                         help='forecasting task, options:[M, S, MS]; M:multivariate predict multivariate, S:univariate predict univariate, MS:multivariate predict univariate')
