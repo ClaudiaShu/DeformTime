@@ -123,7 +123,7 @@ The results will be saved in a `result.txt` file.
 
 ## Results
 
-Our model achieves the following performance with MAE score. The best results are in **bold** font and the second best are <ins>underlined</ins>. See full results in the paper.
+Our model achieves the following performance with MAE score. The best results are in **bold** font and the second best are <ins>underlined</ins>. We use iTrans. and Cross. as the abbreviation for iTransformer and Crossformer respectively. See full results in the paper.
 <!-- (We use $\epsilon~\\%$ to denote the SMAPE score. See more details in the paper.) -->
 
 <!DOCTYPE html>
@@ -159,9 +159,11 @@ Our model achieves the following performance with MAE score. The best results ar
     <th>$H$</th>
     <th class="small-caps">DeformTime</th>
     <th>PatchTST</th>
-    <th>iTransformer</th>
-    <th>TimeMixer</th>
-    <th>Crossformer</th>
+    <!-- <th colspan="2">iTransformer</th> -->
+    <th colspan="2">iTrans.</th>
+    <th colspan="2">TimeMixer</th>
+    <!-- <th colspan="2">Crossformer</th> -->
+    <th colspan="2">Cross.</th>
     <th>LightTS</th>
     <th>DLinear</th>
 
