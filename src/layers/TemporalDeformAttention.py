@@ -159,7 +159,7 @@ class DeformAtten1D(nn.Module):
         self.offset_range_factor = kernel
         self.no_off = no_off
         self.seq_len = seq_len
-        self.d_model = d_model # (512)
+        self.d_model = d_model 
         self.n_groups = n_groups
         self.n_group_channels = self.d_model // self.n_groups
         self.n_heads = n_heads
@@ -171,7 +171,6 @@ class DeformAtten1D(nn.Module):
         self.proj_q = nn.Conv1d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
         self.proj_k = nn.Conv1d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
         self.proj_v = nn.Conv1d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
-        # self.proj_out = nn.Conv1d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
         self.proj_out = nn.Linear(self.d_model, self.d_model)
         kernel_size = kernel
         self.stride = 1
@@ -181,9 +180,6 @@ class DeformAtten1D(nn.Module):
             nn.Conv1d(self.n_group_channels, 1, kernel_size=1, stride=self.stride, padding=pad_size),
         )
 
-        self.proj_drop = nn.Dropout(dropout, inplace=False)
-        self.attn_drop = nn.Dropout(dropout, inplace=False)
-
         self.scale_factor = self.d_model ** -0.5  # 1/np.sqrt(dim)
 
         if self.rpb:
@@ -191,21 +187,12 @@ class DeformAtten1D(nn.Module):
                 torch.zeros(1, self.d_model, self.seq_len))
             trunc_normal_(self.relative_position_bias_table, std=.02)
 
-    @torch.no_grad()
-    def _get_q_grid(self, L, B, dtype, device):
-        ref = torch.arange(0, L, dtype=dtype, device=device)
-        ref.div_(L - 1.0).mul_(2.0).sub_(1.0)
-        ref = ref[None, ...].expand(B * self.n_groups, -1, -1).permute(0,2,1) # B * g L 1
-        return ref
-
     def forward(self, x, mask=None):
         B, L, C = x.shape
         dtype, device = x.dtype, x.device
         x = x.permute(0,2,1) # B, C, L
 
         q = self.proj_q(x) # B, C, L
-
-        q_off = rearrange(q, 'b (g c) l -> (b g) c l', g=self.n_groups) 
 
         group = lambda t: rearrange(t, 'b (g d) n -> (b g) d n', g = self.n_groups)
 
@@ -219,7 +206,9 @@ class DeformAtten1D(nn.Module):
             grid = rearrange(grid, '... -> ... 1 1')
             grid = F.pad(grid, (1, 0), value = 0.)
             feats = rearrange(feats, '... -> ... 1')
-            out = F.grid_sample(feats, grid, **kwargs)
+            # the backward of F.grid_sample is non-deterministic
+            # See for details: https://pytorch.org/docs/stable/generated/torch.nn.functional.grid_sample.html
+            out = F.grid_sample(feats, grid, **kwargs) 
             return rearrange(out, '... 1 -> ...')
         
         def normalize_grid(arange, dim = 1, out_dim = -1):
@@ -258,9 +247,9 @@ class DeformAtten1D(nn.Module):
             assert mask.shape == scaled_dot_prod.shape[1:]
             scaled_dot_prod = scaled_dot_prod.masked_fill(mask, -np.inf)
 
-        attention = torch.softmax(scaled_dot_prod, dim=-1)
+        attention = torch.softmax(scaled_dot_prod, dim=-1) # softmax: attention[0,0,:].sum() = 1
 
-        out = torch.einsum('b i j , b j d -> b i d', attention, v) # attention[0,0,:].sum() = 1
+        out = torch.einsum('b i j , b j d -> b i d', attention, v) 
         
         return self.proj_out(rearrange(out, '(b g) l c -> b c (g l)', b=B))
 
@@ -287,7 +276,6 @@ class DeformAtten2D(nn.Module):
         self.proj_q = nn.Conv2d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
         self.proj_k = nn.Conv2d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
         self.proj_v = nn.Conv2d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
-        # self.proj_out = nn.Conv1d(self.d_model, self.d_model, kernel_size=1, stride=1, padding=0)
         self.proj_out = nn.Linear(self.d_model, self.d_model)
         kernel_size = kernel
         self.stride = 1
@@ -297,9 +285,6 @@ class DeformAtten2D(nn.Module):
             nn.Conv2d(self.n_group_channels, 2, kernel_size=1, stride=1, padding=0, bias=False)
         )
 
-        self.proj_drop = nn.Dropout(dropout, inplace=False)
-        self.attn_drop = nn.Dropout(dropout, inplace=False)
-
         self.scale_factor = self.d_model ** -0.5  # 1/np.sqrt(dim)
 
         if self.rpb:
@@ -307,32 +292,14 @@ class DeformAtten2D(nn.Module):
                 torch.zeros(1, self.d_model, self.seq_len, 1))
             trunc_normal_(self.relative_position_bias_table, std=.02)
 
-    @torch.no_grad()
-    def _get_q_grid(self, H, W, B, dtype, device):
-        ref_y, ref_x = torch.meshgrid(
-            torch.arange(0, H, dtype=dtype, device=device),
-            torch.arange(0, W, dtype=dtype, device=device),
-            indexing='ij'
-        )
-        ref = torch.stack((ref_y, ref_x), -1)
-        ref[..., 1].div_(W - 1.0).mul_(2.0).sub_(1.0)
-        ref[..., 0].div_(H - 1.0).mul_(2.0).sub_(1.0)
-        ref = ref[None, ...].expand(B * self.n_groups, -1, -1, -1) # B * g H W 2
-
-        return ref
 
     def forward(self, x, mask=None):
         B, H, W, C = x.shape
-        dtype, device = x.dtype, x.device
         x = x.permute(0, 3, 1, 2) # B, C, H, W
 
-        q = self.proj_q(x) # B, C, H, W
+        q = self.proj_q(x) # B, 1, H, W
 
-        group = lambda t: rearrange(t, 'b (g d) ... -> (b g) d ...', g = self.n_groups)
-
-        q_off = rearrange(q, 'b (g c) h w -> (b g) c h w', g=self.n_groups) 
-
-        offset = self.proj_offset(q_off) # B * g 2 H, W
+        offset = self.proj_offset(q) # B, 2, H, W
 
         if self.offset_range_factor >= 0 and not self.no_off:
             offset = offset.tanh().mul(self.offset_range_factor)
@@ -364,11 +331,10 @@ class DeformAtten2D(nn.Module):
         else:
             grid =create_grid_like(offset)
             vgrid = grid + offset
-
             vgrid_scaled = normalize_grid(vgrid)
-
+            # the backward of F.grid_sample is non-deterministic
             x_sampled = F.grid_sample(
-                group(x),
+                x,
                 vgrid_scaled,
             mode = 'bilinear', padding_mode = 'zeros', align_corners = False)[:,:,:H,:W]
               
@@ -402,8 +368,8 @@ class CrossDeformAttn(nn.Module):
         self.n_days = n_days
         self.seq_len = seq_len
         # 1d size: B*n_days, subseq_len, C
-        self.subseq_len = seq_len // n_days + (1 if seq_len % n_days != 0 else 0)
         # 2d size: B*num_patches, 1, patch_len, C
+        self.subseq_len = seq_len // n_days + (1 if seq_len % n_days != 0 else 0)
         self.patch_len = patch_len
         self.stride = stride
         self.num_patches = num_patches(self.seq_len, self.patch_len, self.stride)
@@ -411,16 +377,14 @@ class CrossDeformAttn(nn.Module):
         self.layer_norm = LayerNorm(d_model)
 
         # 1D
-        self.test1 = nn.Linear(d_model, d_model, bias=True)
-        self.test2 = nn.Linear(self.subseq_len, self.subseq_len, bias=True)
-        # 1D
+        self.ff1 = nn.Linear(d_model, d_model, bias=True)
+        self.ff2 = nn.Linear(self.subseq_len, self.subseq_len, bias=True)
         # Deform attention
         self.deform_attn = DeformAtten1D(self.subseq_len, d_model, n_heads, dropout, kernel=window_size, no_off=no_off) 
         self.attn_layers1d = nn.ModuleList([self.deform_attn])
 
         self.mlps1d = nn.ModuleList(
             [ 
-                # MLP([d_model, d_model//2, d_model], final_relu=True, drop_out=0.1) for _ in range(len(self.attn_layers1d))
                 MLP([d_model, d_model], final_relu=True, drop_out=0.0) for _ in range(len(self.attn_layers1d))
             ]
         )
@@ -441,7 +405,6 @@ class CrossDeformAttn(nn.Module):
 
         self.mlps2d = nn.ModuleList(
             [ 
-                # MLP([d_route, d_route//2, d_route], final_relu=True, drop_out=0.1) for _ in range(len(self.attn_layers2d))
                 MLP([d_model, d_model], final_relu=True, drop_out=0.0) for _ in range(len(self.attn_layers2d))
             ]
         )
@@ -489,7 +452,6 @@ class CrossDeformAttn(nn.Module):
 
         x = torch.concat([x_1d, x_2d], dim=-1)
         x = self.fc(x)
-        # x = x_2d
 
         return x, None
     

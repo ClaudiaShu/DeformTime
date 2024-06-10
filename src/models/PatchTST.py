@@ -24,7 +24,6 @@ class Model(nn.Module):
     """
     Paper link: https://arxiv.org/pdf/2211.14730.pdf
     """
-
     def __init__(self, configs, patch_len=16, stride=8):
         """
         patch_len: int, patch len for patch_embedding

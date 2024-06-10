@@ -9,7 +9,6 @@ class Model(nn.Module):
     """
     Paper link: https://arxiv.org/abs/2310.06625
     """
-
     def __init__(self, configs):
         super(Model, self).__init__()
         self.seq_len = configs.seq_len

@@ -1,5 +1,4 @@
 import argparse
-import os
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import torch
 from src.exp.exp_MTS_forecasting import exp_MTS_forecasting
@@ -38,8 +37,6 @@ if __name__ == '__main__':
     parser.add_argument('--inverse', action='store_true', help='inverse output data', default=False)
 
     # model define
-    parser.add_argument('--top_k', type=int, default=5, help='for TimesBlock')
-    parser.add_argument('--num_kernels', type=int, default=6, help='for Inception')
     parser.add_argument('--enc_in', type=int, default=7, help='encoder input size')
     parser.add_argument('--dec_in', type=int, default=7, help='decoder input size')
     parser.add_argument('--c_out', type=int, default=7, help='output size')
@@ -58,8 +55,7 @@ if __name__ == '__main__':
                         help='time features encoding, options:[timeF, fixed, learned]')
     parser.add_argument('--activation', type=str, default='gelu', help='activation')
     parser.add_argument('--output_attention', action='store_true', help='whether to output attention in ecoder')
-    parser.add_argument('--channel_independence', type=int, default=0,
-                        help='1: channel dependence 0: channel independence for FreTS model')
+
     # optimization
     parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')
     parser.add_argument('--itr', type=int, default=1, help='experiments times')
@@ -78,6 +74,7 @@ if __name__ == '__main__':
     parser.add_argument('--use_multi_gpu', action='store_true', help='use multiple gpus', default=False)
     parser.add_argument('--devices', type=str, default='0,1,2,3', help='device ids of multile gpus')
 
+    # DeformTime parameters
     parser.add_argument('--kernel', type=int, default=6, help='kernel size')
     parser.add_argument('--n_reshape', type=int, default=16)
 

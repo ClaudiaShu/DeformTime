@@ -6,13 +6,9 @@ from src.layers.Embed import Deform_Temporal_Embedding, Local_Temporal_Embedding
 from math import ceil
 
 class Layernorm(nn.Module):
-    """
-    Special designed layernorm for the seasonal part
-    """
-
-    def __init__(self, channels):
+    def __init__(self, dim):
         super(Layernorm, self).__init__()
-        self.layernorm = nn.LayerNorm(channels)
+        self.layernorm = nn.LayerNorm(dim)
 
     def forward(self, x):
         x_hat = self.layernorm(x)
@@ -29,7 +25,6 @@ class Model(nn.Module):
         self.d_model = configs.d_model
         self.f_dim = configs.enc_in
         self.c_out = configs.c_out
-        # self.n_heads = 1
         self.dropout = configs.dropout
         self.kernel_size = configs.kernel
 
@@ -43,7 +38,6 @@ class Model(nn.Module):
             self.pad_in_len = ceil(1.0 * configs.enc_in / self.s_group) * self.s_group
             self.enc_value_embedding = Local_Temporal_Embedding(self.pad_in_len//self.s_group, self.d_model, self.pad_in_len-configs.enc_in, self.s_group)
 
-        # self.enc_pos_embedding = nn.Parameter(torch.randn(1, self.seq_len, self.d_model))
         self.pre_norm = nn.LayerNorm(configs.d_model)
         # Encoder
         n_days = [1,configs.n_reshape,configs.n_reshape]
@@ -90,7 +84,6 @@ class Model(nn.Module):
         x_enc = x_enc / std_enc
 
         x_enc = self.enc_value_embedding(x_enc)
-        # x_enc += self.enc_pos_embedding
         x_enc = self.pre_norm(x_enc)
 
         # Deformed attention
