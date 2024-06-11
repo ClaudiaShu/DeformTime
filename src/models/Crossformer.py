@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from einops import rearrange, repeat
 from src.layers.Crossformer_EncDec import scale_block, Encoder, Decoder, DecoderLayer
 from src.layers.Embed import PatchEmbedding
