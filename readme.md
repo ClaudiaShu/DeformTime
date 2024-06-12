@@ -1,8 +1,6 @@
 # DeformTime
 
-This repository maintains the official implementation of methods and experiments presented in our paper titled "<strong>DeformTime: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting</strong>".
-
-[paper](https://arxiv.org/abs/2406.07438)
+This repository maintains the official implementation of methods and experiments presented in our paper titled "<a href="https://arxiv.org/abs/2406.07438"><strong>DeformTime: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting</strong></a>".
 
 <!-- [DEFORMTIME: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting](https://arxiv.org/abs/2030.12345).  -->
 
