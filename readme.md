@@ -12,8 +12,8 @@ This repository maintains the official implementation of methods and experiments
 ```
 @article{shu2024deformtime,
     author    = {Yuxuan Shu and Vasileios Lampos},
-    title     = {{\textsc{DeformTime}: Capturing Variable Dependencies with Deformable Attention
-                  for Time Series Forecasting}},
+    title     = {{\textsc{DeformTime}: Capturing Variable Dependencies with
+                  Deformable Attention for Time Series Forecasting}},
     year      = {2024},
     journal   = {Preprint under review}
 }
