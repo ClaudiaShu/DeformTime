@@ -1,6 +1,6 @@
 # DeformTime
 
-This repository maintains the official implementation of methods and experiments presented in our paper titled "<a href="https://arxiv.org/abs/2406.07438"><strong>DeformTime: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting</strong></a>".
+This repository maintains the official implementation of methods and experiments presented in our TMLR paper titled "<a href="https://arxiv.org/abs/2406.07438"><strong>DeformTime: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting</strong></a>".
 
 <!-- [DEFORMTIME: Capturing Variable Dependencies with Deformable Attention for Time Series Forecasting](https://arxiv.org/abs/2030.12345).  -->
 
@@ -11,12 +11,14 @@ This repository maintains the official implementation of methods and experiments
 <!-- To cite our paper please use:-->
 
 ```
-@article{shu2024deformtime,
+@article{shu2025deformtime,
     author    = {Yuxuan Shu and Vasileios Lampos},
     title     = {{\textsc{DeformTime}: Capturing Variable Dependencies with
                   Deformable Attention for Time Series Forecasting}},
-    year      = {2024},
-    journal   = {Preprint under review}
+    journal   = {Transactions on Machine Learning Research},
+    issn      = {2835-8856},
+    year      = {2025},
+    url       = {https://openreview.net/forum?id=M62P7iOT7d},
 }
 ```
 
