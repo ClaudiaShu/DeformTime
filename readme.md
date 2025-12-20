@@ -22,6 +22,10 @@ This repository maintains the official implementation of methods and experiments
 }
 ```
 
+## 🎉 News
+
+Our latest paper, [Sonnet: Spectral Operator Neural Network for Multivariable Time Series Forecasting](https://arxiv.org/abs/2505.15312), has been accepted for oral presentation at AAAI! Code is available at [github.com/ClaudiaShu/Sonnet](https://github.com/ClaudiaShu/Sonnet). We also present a new dataset that covers multiple regions across multiple years for multivariable weather forecasting, available on HuggingFace: [huggingface.co/datasets/ClaudiaShu/wea_mts](https://huggingface.co/datasets/ClaudiaShu/wea_mts).
+
 ## Abstract
 
 <link rel="stylesheet" href="style.css">
